@@ -4,8 +4,9 @@ services:
     image: postgres:10
     container_name: db
     environment:
-      - DB_PORT_5432_TCP_ADDR=postgres
+      - DB_PORT_5432_TCP_ADDR=odoo
       - DB_PORT_5432_TCP_PORT=5432
+      - POSTGRES_DB=postgres  
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
@@ -16,5 +17,5 @@ services:
     ports:
       - "5435:5432" 
 volumes:
-  odoo-db-data:        
+    odoo-db-data:        
 
