@@ -3,11 +3,12 @@ services:
   web:
     image: odoo:14.0
     container_name: odoo14c
+    command: -- -c /etc/odoo/odoo.conf -d odoo14c_sr-robot
     networks:
       - default
       - pg_default
     external_links:
-      - db:postgres
+      - db:odoo
     ports:
       - "8170:8069"
     volumes:
@@ -20,5 +21,5 @@ networks:
       pg_default:
           external: true      
 volumes:
-  odoo-web-data:        
+    odoo-web-data:        
 
